@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.LoginActivity"
+    android:id="@+id/container">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@color/seashell">
+
+        <EditText
+            android:layout_width="400dp"
+            android:layout_height="48dp"
+            android:id="@+id/username_login"
+            android:hint="@string/user_name"
+            android:layout_marginTop="40dp"
+            android:autofillHints="username"
+            android:layout_centerHorizontal="true"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:layout_width="400dp"
+            android:layout_height="48dp"
+            android:id="@+id/password_login"
+            android:hint="@string/password"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/username_login"
+            android:autofillHints="password"
+            android:layout_centerHorizontal="true"
+            android:inputType="textPassword" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_login"
+            android:layout_centerHorizontal="true"
+            android:text="@string/log_in_now"
+            android:layout_below="@+id/password_login"
+            android:backgroundTint="@color/peach"
+            android:layout_marginTop="100dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>

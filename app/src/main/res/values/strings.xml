@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Personal Cookbook App</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="re_password">Retype Password</string>
+    <string name="register">Register</string>
+    <string name="log_in">Already have an account? Log In</string>
+    <string name="log_in_now">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="pasta_carbonara_ingredients">• 1 pound spaghetti\n• ½ pound pancetta, diced\n• 4 large egg yolks\n• 1 cup freshly grated Pecorino Romano cheese\n• ½ cup freshly grated Parmesan cheese\n• 4 cloves garlic, minced\n• Salt and freshly ground black pepper, to taste\n• 1 tablespoon olive oil\n• (optional) Chopped parsley, for garnish</string>
+    <string name="pasta_carbonara_instructions">1. Bring a large pot of salted water to a boil. Add spaghetti and cook until al dente, about 8–10 minutes.\n\n2. Meanwhile, heat olive oil in a large skillet over medium heat. Add pancetta and cook, stirring occasionally, until crispy, about 8–10 minutes. Add garlic and cook for another minute.\n\n3. In a medium bowl, whisk together egg yolks, Pecorino Romano cheese, and Parmesan cheese until well combined.\n\n4. Drain spaghetti and reserve 1 cup of pasta water.\n\n5. Return the skillet with pancetta to low heat. Add the spaghetti and toss with the pancetta and garlic until well combined.\n\n6. Remove the skillet from heat and add the egg yolk mixture. Use tongs to toss the pasta quickly to prevent the eggs from scrambling. Add pasta water as needed to create a smooth and creamy sauce.\n\n7. Season with salt and pepper to taste.\n\n8. Serve immediately with chopped parsley as garnish, if desired.</string>
+
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_account">My Account</string>
+    <string name="home">Home</string>
+    <string name="discover_restaurants">Discover Restaurants</string>
+    <string name="menu">MENU</string>
+    <string name="pasta_carbonara_recipe_intro">Pasta Carbonara is a classic Italian dish that\'s both hearty and delicious. With crispy pancetta and a creamy, cheesy sauce, this medium-difficulty recipe is sure to become a new favorite in your repertoire. With just a few simple ingredients and some basic cooking techniques, you can whip up a batch of pasta carbonara that\'s perfect for any occasion. So why not give it a try and impress your friends and family with this tasty and satisfying meal?</string>
+    <string name="pasta_carbonara_image">pasta carbonara image</string>
+    <string name="balsamic_caprese_recipe_intro">Looking for a quick and easy appetizer or light lunch option? Look no further than this delicious balsamic caprese salad! Featuring fresh tomatoes, creamy mozzarella, and fragrant basil, this classic Italian dish is elevated with a simple yet flavorful balsamic dressing. This easy recipe comes together in just minutes, making it perfect for busy weeknights or last-minute entertaining. So grab your ingredients and get ready to enjoy a taste of Italy right in your own home!</string>
+    <string name="balsamic_caprese_image">balsamic caprese image</string>
+    <string name="balsamic_caprese_ingredients">• 2 large ripe tomatoes, sliced\n• 8 oz fresh mozzarella cheese, sliced\n• ¼ cup fresh basil leaves\n• 2 tbsp balsamic vinegar\n• 2 tbsp olive oil\n• Salt and freshly ground black pepper, to taste</string>
+    <string name="balsamic_caprese_instructions">1. Arrange the tomato slices and mozzarella slices on a serving platter, alternating between them.\n\n2. Top the slices with fresh basil leaves.\n\n3. In a small bowl, whisk together the balsamic vinegar and olive oil until well combined.\n\n4. Drizzle the dressing over the tomato and mozzarella slices.\n\n5. Season with salt and freshly ground black pepper to taste.\n\n6. Serve immediately and enjoy!</string>
+    <string name="beef_broccoli_recipe_intro">Looking for a delicious and satisfying dinner idea? Look no further than this easy beef broccoli stir-fry recipe! Tender strips of beef are combined with crisp broccoli florets in a flavorful sauce that\'s both sweet and savory. With just a few simple ingredients and basic cooking techniques, you can whip up a restaurant-quality meal in the comfort of your own home. This recipe is perfect for busy weeknights when you want something tasty and filling without spending hours in the kitchen. So why not give it a try and impress your family and friends with your culinary skills?</string>
+    <string name="beef_broccoli_image">beef broccoli image</string>
+    <string name="beef_broccoli_ingredients">• 1 lb flank steak, sliced thinly\n• 4 cups broccoli florets\n• 2 tbsp vegetable oil\n• 3 cloves garlic, minced\n• ½ tsp ginger, grated\n• ¼ cup soy sauce\n• ¼ cup oyster sauce\n• ¼ cup brown sugar\n• ½ cup water\n• 1 tbsp cornstarch\n• Salt and pepper, to taste</string>
+    <string name="beef_broccoli_instructions">1. Heat the vegetable oil in a large skillet or wok over high heat. Add the sliced flank steak and stir–fry for 3–4 minutes, or until browned.\n\n2. Remove the steak from the skillet and set aside.\n\n3. Add the broccoli florets to the skillet and stir–fry for 3–4 minutes, or until they are bright green and slightly tender.\n\n4. Add the minced garlic and grated ginger to the skillet and stir–fry for 30 seconds, or until fragrant.\n\n5. In a small bowl, whisk together the soy sauce, oyster sauce, brown sugar, water, and cornstarch until smooth.\n\n6. Add the steak back to the skillet and pour the sauce over the top.\n\n7. Stir everything together and cook for an additional 2–3 minutes, or until the sauce has thickened and the steak is fully cooked.\n\n8. Season with salt and pepper to taste.\n\n9. Serve the beef broccoli stir-fry over rice or noodles and enjoy!</string>
+    <string name="blueberry_scones_recipe_intro">Start your morning off right with these delicious and easy-to-make blueberry scones! Perfectly tender and flaky, these scones are packed with juicy blueberries and just the right amount of sweetness. Whether you enjoy them with your morning coffee or as an afternoon snack, these scones are sure to become a new favorite in your household.</string>
+    <string name="blueberry_scones_image">blueberry scones image</string>
+    <string name="blueberry_scones_ingredients">• 2 cups all-purpose flour\n• ⅓ cup granulated sugar\n• 2 tsp baking powder\n• ½ tsp salt\n• ½ cup unsalted butter, cold and cubed\n• ½ cup milk\n• 1 egg\n• 1 tsp vanilla extract\n• 1 cup fresh blueberries</string>
+    <string name="blueberry_scones_instructions">1. Preheat your oven to 400°F (200°C) and line a baking sheet with parchment paper.\n\n2. In a large mixing bowl, whisk together the flour, sugar, baking powder, and salt.\n\n3. Add the cold butter to the bowl and use a pastry cutter or your fingers to work the butter into the flour mixture until it resembles coarse crumbs.\n\n4. In a separate bowl, whisk together the milk, egg, and vanilla extract.\n\n5. Add the wet ingredients to the dry ingredients and stir until just combined.\n\n6. Gently fold in the fresh blueberries.\n\n7. Turn the dough out onto a floured surface and pat it into a circle about 1 inch thick.\n\n8. Cut the circle into 8 equal wedges and transfer them to the prepared baking sheet.\n\n9. Bake the scones for 15–18 minutes, or until they are golden brown and a toothpick inserted into the center comes out clean.\n\n10. Allow the scones to cool on the baking sheet for a few minutes before transferring them to a wire rack to cool completely.</string>
+    <string name="cheesecake_recipe_intro">Indulge in a slice of heaven with this creamy and delicious cheesecake recipe. Made with a buttery graham cracker crust and a velvety smooth cream cheese filling, this cheesecake is the perfect dessert for any occasion. Topped with your favorite fruit or chocolate sauce, this cheesecake is sure to impress.</string>
+    <string name="cheesecake_image">cheesecake image</string>
+    <string name="cheesecake_ingredients">For the crust:\n• 1 ½ cups graham cracker crumbs\n• ¼ cup granulated sugar\n• ⅓ cup unsalted butter, melted\nFor the filling:\n• 4 (8 oz.) packages cream cheese, softened\n• 1 ¼ cups granulated sugar\n• 2 tsp vanilla extract\n• 4 large eggs\n• ⅓ cup heavy cream</string>
+    <string name="cheesecake_instructions">1. Preheat your oven to 350°F (175°C) and grease a 9–inch springform pan.\n\n2. In a mixing bowl, combine the graham cracker crumbs, sugar, and melted butter until well combined.\n\n3. Press the mixture into the bottom of the prepared pan and bake for 10 minutes.\n\n4. In a separate mixing bowl, beat the cream cheese until smooth.\n\n5. Gradually add in the sugar and vanilla extract, and beat until well combined.\n\n6. Add the eggs, one at a time, beating well after each addition.\n\n7. Stir in the heavy cream until just combined.\n\n8. Pour the mixture into the prepared crust and bake for 45–50 minutes, or until the center is almost set.\n\n9. Remove the cheesecake from the oven and allow it to cool to room temperature.\n\n10. Refrigerate the cheesecake for at least 4 hours or overnight before serving.</string>
+    <string name="chocolate_smoothie_recipe_intro">Start your day off right with this rich and creamy Chocolate Peanut Butter Banana Smoothie. Made with wholesome ingredients like bananas, peanut butter, and cocoa powder, this smoothie is the perfect breakfast or snack. It\'s a great way to satisfy your sweet tooth while getting a boost of protein and fiber.</string>
+    <string name="chocolate_smoothie_ingredients">• 2 ripe bananas\n• 1 cup unsweetened almond milk\n• ¼ cup creamy peanut butter\n• 2 tbsp cocoa powder\n• 1 tbsp honey\n• ½ tsp vanilla extract\n• 1 cup ice cubes</string>
+    <string name="chocolate_smoothie_image">chocolate smoothie image</string>
+    <string name="chocolate_smoothie_instructions">1. Peel the bananas and cut them into chunks.\n\n2. Place the banana chunks, almond milk, peanut butter, cocoa powder, honey, and vanilla extract in a blender.\n\n3. Add the ice cubes to the blender and blend on high speed until smooth and creamy.\n\n4. Taste the smoothie and adjust the sweetness or thickness as desired by adding more honey or ice cubes.\n\n5. Pour the smoothie into glasses and serve immediately.</string>
+</resources>
