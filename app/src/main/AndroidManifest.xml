@@ -45,6 +45,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBqf53RMadviooWF35mHaWRPQrT0r-8uaA"/>
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="true"/>
     </application>
 
 </manifest>
