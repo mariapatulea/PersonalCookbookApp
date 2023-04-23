@@ -10,49 +10,56 @@
     tools:context=".AccountActivity"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/nav_button"
-            android:text="@string/menu"
-            android:backgroundTint="@color/peach"
-            android:textColor="@color/platinum1"
-            android:textAlignment="viewStart" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_view"
-            android:text="Welcome, username!"
-            android:padding="10dp"
-            android:textAlignment="center"
-            android:textStyle="bold|italic"
-            android:textColor="@color/dark_gray"
-            android:textSize="20sp"
-            android:layout_below="@+id/nav_button"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nav_button"
+                android:text="@string/menu"
+                android:backgroundTint="@color/peach"
+                android:textColor="@color/platinum1"
+                android:textAlignment="viewStart" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/your_saved_recipes"
-            android:layout_below="@+id/text_view"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Here you can find your saved recipes."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_view"
+                android:text="Welcome, username!"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold|italic"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                android:layout_below="@+id/nav_button"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/your_saved_recipes" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/your_saved_recipes"
+                android:layout_below="@+id/text_view"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Here you can find your saved recipes."/>
 
-    </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/your_saved_recipes"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
