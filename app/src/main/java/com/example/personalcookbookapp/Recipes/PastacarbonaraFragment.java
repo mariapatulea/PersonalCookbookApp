@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -28,8 +29,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.example.personalcookbookapp.AccountActivity;
 import com.example.personalcookbookapp.DBHelper;
@@ -118,6 +121,32 @@ public class PastacarbonaraFragment extends Fragment {
                 }
             }
         });
+
+        Button playButton = view.findViewById(R.id.play_button);
+        VideoView videoView = view.findViewById(R.id.video_view);
+        String path = "android.resource://" + requireActivity().getPackageName() + "/" + R.raw.pasta_carbonara_video;
+        videoView.setVideoURI(Uri.parse(path));
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (videoView.isPlaying()) {
+                    videoView.pause();
+                    playButton.setText("Play");
+                } else {
+                    videoView.start();
+                    playButton.setText("Pause");
+                }
+            }
+        });
+
+//        MediaController mediaController = new MediaController(getContext());
+//        VideoView videoView = view.findViewById(R.id.video_view);
+//        String path = "android.resource://" + requireActivity().getPackageName() + "/" + R.raw.pasta_carbonara_video;
+//        videoView.setVideoURI(Uri.parse(path));
+//        Log.d("path", path);
+//        mediaController.setAnchorView(videoView);
+//        videoView.setMediaController(mediaController);
+//        videoView.start();
 
         return view;
     }

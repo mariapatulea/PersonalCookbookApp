@@ -147,6 +147,22 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp" />
 
+            <Button
+                android:id="@+id/play_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PLAY"
+                android:layout_below="@id/pasta_carbonara_instructions"
+                android:layout_centerHorizontal="true"/>
+
+            <VideoView
+                android:id="@+id/video_view"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/play_button"
+                android:layout_margin="16dp" />
+
         </RelativeLayout>
 
     </ScrollView>
