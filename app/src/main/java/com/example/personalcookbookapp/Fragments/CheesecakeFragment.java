@@ -1,9 +1,16 @@
-package com.example.personalcookbookapp.Recipes;
+package com.example.personalcookbookapp.Fragments;
 
+import android.Manifest;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
@@ -14,12 +21,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.personalcookbookapp.DBHelper;
+import com.example.personalcookbookapp.Activities.AccountActivity;
+import com.example.personalcookbookapp.DataBase.DBHelper;
 import com.example.personalcookbookapp.R;
 
 
 public class CheesecakeFragment extends Fragment {
 
+    private static final int MY_PERMISSIONS_REQUEST_POST_NOTIFICATIONS = 123;
     private String mTitle;
 
     public CheesecakeFragment() {
@@ -65,6 +74,13 @@ public class CheesecakeFragment extends Fragment {
 
                 if (res) {
                     Toast.makeText(getContext(), "Recipe saved", Toast.LENGTH_SHORT).show();
+
+                    if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.POST_NOTIFICATIONS}, MY_PERMISSIONS_REQUEST_POST_NOTIFICATIONS);
+                    } else {
+                        showNotification();
+                    }
+
                 } else {
                     Toast.makeText(getContext(), "Recipe could NOT be saved", Toast.LENGTH_SHORT).show();
                 }
@@ -94,5 +110,45 @@ public class CheesecakeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    private void showNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "my_channel_id")
+                .setSmallIcon(R.drawable.ic_notification)
+                .setContentTitle("Recipe Saved")
+                .setContentText("Click here to view all your saved recipes!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(createPendingIntent());
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());
+
+        if (ActivityCompat.checkSelfPermission(this.requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        notificationManager.notify(1, builder.build());
+    }
+
+    private PendingIntent createPendingIntent() {
+        Intent intent = new Intent(requireContext(), AccountActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        return PendingIntent.getActivity(requireContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MY_PERMISSIONS_REQUEST_POST_NOTIFICATIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                showNotification();
+            } else {
+                Toast.makeText(requireContext(), "Permission denied. Cannot show notification.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

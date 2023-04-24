@@ -1,4 +1,4 @@
-package com.example.personalcookbookapp;
+package com.example.personalcookbookapp.DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -264,6 +264,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor searchRecipes(String query) {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("select * from main_recipes_list where title = ?", new String[]{query});
+        String[] args = new String[]{"%" + query.toLowerCase() + "%"};
+        return db.rawQuery("select * from main_recipes_list where lower(title) like ?", args);
     }
 }

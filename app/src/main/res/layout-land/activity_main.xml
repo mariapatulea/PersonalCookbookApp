@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:background="@color/seashell"
-        tools:context=".MainActivity">
+        tools:context=".Activities.MainActivity">
 
         <EditText
             android:layout_width="match_parent"

@@ -18,26 +18,26 @@
         android:theme="@style/Theme.PersonalCookbookApp"
         tools:targetApi="31">
         <activity
-            android:name=".RecipeDetailsActivity"
+            android:name=".Activities.RecipeDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".NavigationActivity"
+            android:name=".Activities.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".RestaurantsActivity"
+            android:name=".Activities.RestaurantsActivity"
             android:exported="false" />
         <activity
-            android:name=".AccountActivity"
+            android:name=".Activities.AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

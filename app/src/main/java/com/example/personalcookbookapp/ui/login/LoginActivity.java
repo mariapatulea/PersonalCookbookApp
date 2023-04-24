@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.personalcookbookapp.DBHelper;
-import com.example.personalcookbookapp.HomeActivity;
+import com.example.personalcookbookapp.DataBase.DBHelper;
+import com.example.personalcookbookapp.Activities.HomeActivity;
 import com.example.personalcookbookapp.R;
 
 public class LoginActivity extends AppCompatActivity {

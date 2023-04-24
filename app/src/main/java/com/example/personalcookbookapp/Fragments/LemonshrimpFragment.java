@@ -1,58 +1,44 @@
-package com.example.personalcookbookapp.Recipes;
+package com.example.personalcookbookapp.Fragments;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
-import com.example.personalcookbookapp.AccountActivity;
-import com.example.personalcookbookapp.DBHelper;
+import com.example.personalcookbookapp.Activities.AccountActivity;
+import com.example.personalcookbookapp.DataBase.DBHelper;
 import com.example.personalcookbookapp.R;
 
-import java.util.Map;
-import java.util.Objects;
 
-
-public class PastacarbonaraFragment extends Fragment {
+public class LemonshrimpFragment extends Fragment {
 
     private static final int MY_PERMISSIONS_REQUEST_POST_NOTIFICATIONS = 123;
     private String mTitle;
 
-    public PastacarbonaraFragment() {
+    public LemonshrimpFragment() {
         // Required empty public constructor
     }
 
-    public static PastacarbonaraFragment newInstance(String title) {
-        PastacarbonaraFragment fragment = new PastacarbonaraFragment();
+    public static LemonshrimpFragment newInstance(String title) {
+        LemonshrimpFragment fragment = new LemonshrimpFragment();
         Bundle args = new Bundle();
         args.putString("title", title);
         fragment.setArguments(args);
@@ -70,7 +56,7 @@ public class PastacarbonaraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_pastacarbonara, container, false);
+        View view = inflater.inflate(R.layout.fragment_lemonshrimp, container, false);
         TextView titleTextView = view.findViewById(R.id.title_text);
         titleTextView.setText(mTitle);
 
@@ -87,7 +73,7 @@ public class PastacarbonaraFragment extends Fragment {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
                 String username = preferences.getString("username", "");
 
-                boolean res = dbHelper.saveRecipe(username, "Pasta Carbonara");
+                boolean res = dbHelper.saveRecipe(username, "Lemon Shrimp");
 
                 if (res) {
                     Toast.makeText(getContext(), "Recipe saved", Toast.LENGTH_SHORT).show();
@@ -111,42 +97,15 @@ public class PastacarbonaraFragment extends Fragment {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
                 String username = preferences.getString("username", "");
 
-                boolean res = dbHelper.removeSavedRecipe(username, "Pasta Carbonara");
+                boolean res = dbHelper.removeSavedRecipe(username, "Lemon Shrimp");
 
                 if (res) {
                     Toast.makeText(getContext(), "Recipe deleted", Toast.LENGTH_SHORT).show();
-
                 } else {
                     Toast.makeText(getContext(), "Recipe could NOT be deleted", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        Button playButton = view.findViewById(R.id.play_button);
-        VideoView videoView = view.findViewById(R.id.video_view);
-        String path = "android.resource://" + requireActivity().getPackageName() + "/" + R.raw.pasta_carbonara_video;
-        videoView.setVideoURI(Uri.parse(path));
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (videoView.isPlaying()) {
-                    videoView.pause();
-                    playButton.setText("Play");
-                } else {
-                    videoView.start();
-                    playButton.setText("Pause");
-                }
-            }
-        });
-
-//        MediaController mediaController = new MediaController(getContext());
-//        VideoView videoView = view.findViewById(R.id.video_view);
-//        String path = "android.resource://" + requireActivity().getPackageName() + "/" + R.raw.pasta_carbonara_video;
-//        videoView.setVideoURI(Uri.parse(path));
-//        Log.d("path", path);
-//        mediaController.setAnchorView(videoView);
-//        videoView.setMediaController(mediaController);
-//        videoView.start();
 
         return view;
     }
@@ -164,7 +123,7 @@ public class PastacarbonaraFragment extends Fragment {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(createPendingIntent());
 
-         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());
 
         if (ActivityCompat.checkSelfPermission(this.requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -195,5 +154,4 @@ public class PastacarbonaraFragment extends Fragment {
             }
         }
     }
-
 }

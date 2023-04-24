@@ -1,4 +1,4 @@
-package com.example.personalcookbookapp;
+package com.example.personalcookbookapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.personalcookbookapp.DataBase.DBHelper;
+import com.example.personalcookbookapp.R;
 import com.example.personalcookbookapp.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {

@@ -8,7 +8,7 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="false"
     tools:openDrawer="start"
-    tools:context=".NavigationActivity"
+    tools:context=".Activities.NavigationActivity"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
     <LinearLayout

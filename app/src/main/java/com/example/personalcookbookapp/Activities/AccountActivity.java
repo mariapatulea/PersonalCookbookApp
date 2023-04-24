@@ -1,4 +1,4 @@
-package com.example.personalcookbookapp;
+package com.example.personalcookbookapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,48 +10,44 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.personalcookbookapp.Adapters.CustomAdapterSavedRecipes;
+import com.example.personalcookbookapp.DataBase.DBHelper;
+import com.example.personalcookbookapp.R;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    ArrayList<String> title, short_description, difficulty;
-    DBHelper DB;
-    CustomAdapter customAdapter;
+public class AccountActivity extends AppCompatActivity {
+
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private SearchView searchView;
+    SharedPreferences sharedPreferences;
+    TextView textView;
+    RecyclerView recyclerView;
+    CustomAdapterSavedRecipes customAdapterSavedRecipes;
+    ArrayList<String> title;
+    DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_account);
 
-        searchView = findViewById(R.id.search_bar);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = sharedPreferences.getString("username", "");
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                searchRecipes(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                searchRecipes(newText);
-                return false;
-            }
-        });
+        textView = findViewById(R.id.text_view);
+        textView.setText("Welcome, " + username + "!");
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -78,13 +74,13 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_home:
-                        startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+                        startActivity(new Intent(AccountActivity.this, HomeActivity.class));
                         break;
                     case R.id.nav_account:
-                        startActivity(new Intent(HomeActivity.this, AccountActivity.class));
+                        startActivity(new Intent(AccountActivity.this, AccountActivity.class));
                         break;
                     case R.id.nav_restaurants:
-                        startActivity(new Intent(HomeActivity.this, RestaurantsActivity.class));
+                        startActivity(new Intent(AccountActivity.this, RestaurantsActivity.class));
                         break;
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -92,17 +88,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        setTitle("Home Page");
+        setTitle("My Account");
 
         DB = new DBHelper(this);
         title = new ArrayList<>();
-        short_description = new ArrayList<>();
-        difficulty = new ArrayList<>();
-        recyclerView = findViewById(R.id.recyclerview);
-        customAdapter = new CustomAdapter(this, title, short_description, difficulty);
-        recyclerView.setAdapter(customAdapter);
+        recyclerView = findViewById(R.id.recyclerview2);
+        customAdapterSavedRecipes = new CustomAdapterSavedRecipes(this, title);
+        recyclerView.setAdapter(customAdapterSavedRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        displaydata();
+        displaySavedRecipes(username);
     }
 
     @Override
@@ -110,37 +104,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
     }
 
-    private void displaydata() {
-        DB.addRecipes();
-        Cursor cursor = DB.getRecipesData();
+    private void displaySavedRecipes(String username) {
+        Cursor cursor = DB.getSavedRecipes(username);
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "There are no recipes to display.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "There are no saved recipes to display.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                title.add(cursor.getString(0));
-                short_description.add(cursor.getString(1));
-                difficulty.add(cursor.getString(2));
+                title.add(cursor.getString(1));
             }
         }
         cursor.close();
-    }
-
-    private void searchRecipes(String query) {
-        title.clear();
-        short_description.clear();
-        difficulty.clear();
-
-        Cursor cursor = DB.searchRecipes(query);
-        if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No recipes found.", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-                title.add(cursor.getString(0));
-                short_description.add(cursor.getString(1));
-                difficulty.add(cursor.getString(2));
-            }
-        }
-        cursor.close();
-        customAdapter.notifyDataSetChanged();
     }
 }
