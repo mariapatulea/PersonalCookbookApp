@@ -3,7 +3,9 @@ package com.example.personalcookbookapp.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
                             boolean insert = dbHelper.insertData(user, pass);
 
                             if (insert) {
+                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("username", user);
+                                editor.apply();
+
                                 Toast.makeText(MainActivity.this, "You have successfully registered as an user.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                 startActivity(intent);

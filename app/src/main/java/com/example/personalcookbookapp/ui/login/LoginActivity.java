@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     boolean checkUserPass = dbHelper.checkUsernamePassword(user, pass);
                     if (checkUserPass) {
-
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString("username", user);

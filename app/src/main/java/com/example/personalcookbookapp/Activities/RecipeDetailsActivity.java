@@ -40,8 +40,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         String title = getIntent().getStringExtra("title");
 
-        Log.d("in recipe details activity, title is", title);
-
         if (Objects.equals(title, "Pasta Carbonara")) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
