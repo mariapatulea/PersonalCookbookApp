@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.example.personalcookbookapp.Adapters.CustomAdapter;
+import com.example.personalcookbookapp.Adapters.CustomAdapterAllRecipes;
 import com.example.personalcookbookapp.DataBase.DBHelper;
 import com.example.personalcookbookapp.R;
 import com.google.android.material.navigation.NavigationView;
@@ -29,17 +29,15 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<String> title, short_description, difficulty;
     DBHelper DB;
-    CustomAdapter customAdapter;
+    CustomAdapterAllRecipes customAdapterAllRecipes;
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
-    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        searchView = findViewById(R.id.search_bar);
+        SearchView searchView = findViewById(R.id.search_bar);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -58,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
                 R.string.open_nav,
@@ -101,8 +99,8 @@ public class HomeActivity extends AppCompatActivity {
         short_description = new ArrayList<>();
         difficulty = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerview);
-        customAdapter = new CustomAdapter(this, title, short_description, difficulty);
-        recyclerView.setAdapter(customAdapter);
+        customAdapterAllRecipes = new CustomAdapterAllRecipes(this, title, short_description, difficulty);
+        recyclerView.setAdapter(customAdapterAllRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displaydata();
     }
@@ -143,6 +141,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
         cursor.close();
-        customAdapter.notifyDataSetChanged();
+        customAdapterAllRecipes.notifyDataSetChanged();
     }
 }

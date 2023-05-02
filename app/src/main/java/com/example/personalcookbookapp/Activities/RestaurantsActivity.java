@@ -27,7 +27,6 @@ import java.util.Objects;
 public class RestaurantsActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
     private MapView mapView1, mapView2, mapView3, mapView4, mapView5;
 
     @Override
@@ -39,7 +38,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         mapView1.onCreate(savedInstanceState);
         mapView1.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
+            public void onMapReady(@NonNull GoogleMap googleMap) {
                 googleMap.setMinZoomPreference(15);
                 googleMap.setMaxZoomPreference(19);
 
@@ -57,7 +56,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         mapView2.onCreate(savedInstanceState);
         mapView2.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
+            public void onMapReady(@NonNull GoogleMap googleMap) {
                 googleMap.setMinZoomPreference(15);
                 googleMap.setMaxZoomPreference(19);
 
@@ -75,7 +74,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         mapView3.onCreate(savedInstanceState);
         mapView3.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
+            public void onMapReady(@NonNull GoogleMap googleMap) {
                 googleMap.setMinZoomPreference(15);
                 googleMap.setMaxZoomPreference(19);
 
@@ -93,7 +92,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         mapView4.onCreate(savedInstanceState);
         mapView4.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
+            public void onMapReady(@NonNull GoogleMap googleMap) {
                 googleMap.setMinZoomPreference(15);
                 googleMap.setMaxZoomPreference(19);
 
@@ -111,19 +110,16 @@ public class RestaurantsActivity extends AppCompatActivity {
         mapView5.onCreate(savedInstanceState);
         mapView5.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
-                // Customize the map
+            public void onMapReady(@NonNull GoogleMap googleMap) {
                 googleMap.setMinZoomPreference(15);
                 googleMap.setMaxZoomPreference(19);
 
-                // Add a marker for the restaurant
                 LatLng restaurant5 = new LatLng(44.4503724, 26.0939862);
                 Objects.requireNonNull(googleMap.addMarker(new MarkerOptions()
                                 .position(restaurant5)
                                 .title("Trattoria Mezzaluna")))
                         .setSnippet("Strada Crăciun 3, București 101010");
 
-                // Move the camera to the restaurant
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(restaurant5));
             }
         });
@@ -131,7 +127,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
                 R.string.open_nav,

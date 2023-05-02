@@ -16,11 +16,11 @@ import com.example.personalcookbookapp.R;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
-    private Context context;
-    private ArrayList<String> title_id, short_description_id, difficulty_id;
+public class CustomAdapterAllRecipes extends RecyclerView.Adapter<CustomAdapterAllRecipes.CustomViewHolder> {
+    private final Context context;
+    private final ArrayList<String> title_id, short_description_id, difficulty_id;
 
-    public CustomAdapter(Context context, ArrayList<String> title_id, ArrayList<String> short_description_id, ArrayList<String> difficulty_id) {
+    public CustomAdapterAllRecipes(Context context, ArrayList<String> title_id, ArrayList<String> short_description_id, ArrayList<String> difficulty_id) {
         this.context = context;
         this.title_id = title_id;
         this.short_description_id = short_description_id;
@@ -57,7 +57,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         return title_id.size();
     }
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
+    public static class CustomViewHolder extends RecyclerView.ViewHolder {
         TextView title_id, short_description_id, difficulty_id;
         CardView mCardView;
         public CustomViewHolder(@NonNull View itemView) {

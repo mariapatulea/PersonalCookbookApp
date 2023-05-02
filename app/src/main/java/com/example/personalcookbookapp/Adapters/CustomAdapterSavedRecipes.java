@@ -53,7 +53,7 @@ public class CustomAdapterSavedRecipes extends RecyclerView.Adapter<CustomAdapte
         return title_id.size();
     }
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
+    public static class CustomViewHolder extends RecyclerView.ViewHolder {
         TextView title_id;
         CardView mCardView;
         public CustomViewHolder(@NonNull View itemView) {

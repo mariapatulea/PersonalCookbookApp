@@ -30,7 +30,6 @@ import java.util.ArrayList;
 public class AccountActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
     SharedPreferences sharedPreferences;
     TextView textView;
     RecyclerView recyclerView;
@@ -52,7 +51,7 @@ public class AccountActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
                 R.string.open_nav,
